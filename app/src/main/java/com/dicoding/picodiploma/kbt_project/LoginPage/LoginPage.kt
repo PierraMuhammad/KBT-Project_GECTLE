@@ -71,7 +71,7 @@ fun LoginPage(navController: NavController){
                     containerColor = Color(135, 182, 214),
                 )
             ) {
-                Text(text = "Save")
+                Text(text = "Login")
             }
 
             NotHaveAccount(navController)

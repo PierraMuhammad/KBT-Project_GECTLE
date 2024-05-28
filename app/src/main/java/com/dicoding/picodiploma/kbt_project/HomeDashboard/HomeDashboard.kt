@@ -20,7 +20,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -98,12 +101,16 @@ fun HomeDashboard(navController: NavController, user: UserState = remember { Use
 @Composable
 fun callEmergencyNumber(phoneNumber: String, ctx: Context){
     val scope = MainScope()
+    var hasCalled by remember { mutableStateOf(false) }
 
     scope.launch {
         delay(30000)
 
-        val intent = Intent(Intent.ACTION_CALL)
-        intent.data = Uri.parse("tel:$phoneNumber")
-        ctx.startActivity(intent)
+        if(!hasCalled){
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:$phoneNumber")
+            ctx.startActivity(intent)
+            hasCalled = !hasCalled
+        }
     }
 }
