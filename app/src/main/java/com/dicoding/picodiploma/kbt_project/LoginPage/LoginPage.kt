@@ -1,13 +1,16 @@
-package com.dicoding.picodiploma.kbt_project.LoginPage
+      package com.dicoding.picodiploma.kbt_project.LoginPage
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
@@ -25,14 +28,16 @@ import com.dicoding.picodiploma.kbt_project.Component.CloseIcon
 import com.dicoding.picodiploma.kbt_project.Input.InputField
 import com.dicoding.picodiploma.kbt_project.Input.PasswordInputField
 import com.dicoding.picodiploma.kbt_project.Input.TextFieldState
+import com.dicoding.picodiploma.kbt_project.ui.theme.Inter_Bold
+import com.dicoding.picodiploma.kbt_project.ui.theme.Inter_Regular
 
-@Composable
+      @Composable
 fun LoginPage(navController: NavController){
     Surface{
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(30.dp),
+                .padding(28.dp),
         ){
             var username = remember { TextFieldState() }
             var password = remember { TextFieldState() }
@@ -40,41 +45,42 @@ fun LoginPage(navController: NavController){
             CloseIcon(navController)
 
             Text(
-                text = "Mari Login ke Akun Anda",
-                fontSize = 36.sp,
-                lineHeight = 40.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(90.dp)
+                text = "Mari Login ke\n" + "Akun Anda",
+                fontSize = 40.sp,
+                fontFamily = Inter_Bold,
+                letterSpacing = 0.sp,
+                lineHeight = 50.sp,
+                color = Color(0xFF292929)
             )
-
+            Spacer(modifier = Modifier.height(20.dp))
             Text(
-                text = "Selamat Datang",
-                fontSize = 16.sp,
+                text = "Selamat Datang\n" + "Kembali!",
+                fontFamily = Inter_Regular,
+                fontSize = 30.sp,
                 lineHeight = 40.sp,
+                letterSpacing = 0.sp,
                 fontWeight = FontWeight.Normal,
                 modifier = Modifier.padding(bottom = 30.dp)
             )
 
             InputField("Username", username, "")
             PasswordInputField(password)
-
+            NotHaveAccount(navController)
             Button(
                 onClick = {
                           navController.navigate("home_dashboard")
                 },
+                shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 50.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(135, 182, 214),
+                    .height(50.dp),
+                colors = ButtonDefaults.buttonColors(Color(0xFF87B6D6),
                 )
             ) {
                 Text(text = "Login")
             }
 
-            NotHaveAccount(navController)
+
         }
     }
 }
@@ -94,6 +100,7 @@ fun NotHaveAccount(navController: NavController){
             color = Color(135, 182, 214),
             fontWeight = FontWeight.Normal
         )
+        Spacer(modifier = Modifier.width(10.dp))
         Text(
             text = "Daftar dulu",
             fontSize = 12.sp,
