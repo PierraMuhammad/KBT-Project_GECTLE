@@ -7,5 +7,5 @@ import androidx.compose.runtime.setValue
 class UserState(){
     var nama: String by mutableStateOf("Roger")
     var age: String by mutableStateOf("86")
-    var phoneNumber: String by mutableStateOf("081357623265")
+    var phoneNumber: String by mutableStateOf("087789705420")
 }
