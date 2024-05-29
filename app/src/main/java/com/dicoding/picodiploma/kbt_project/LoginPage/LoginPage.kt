@@ -13,8 +13,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -25,12 +28,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.dicoding.picodiploma.kbt_project.Component.CloseIcon
-import com.dicoding.picodiploma.kbt_project.Input.InputField
 import com.dicoding.picodiploma.kbt_project.Input.PasswordInputField
 import com.dicoding.picodiploma.kbt_project.Input.TextFieldState
+import androidx.compose.runtime.*
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import com.dicoding.picodiploma.kbt_project.ui.theme.Inter_Bold
 import com.dicoding.picodiploma.kbt_project.ui.theme.Inter_Regular
-
+      @OptIn(ExperimentalMaterial3Api::class)
       @Composable
 fun LoginPage(navController: NavController){
     Surface{
@@ -39,8 +43,8 @@ fun LoginPage(navController: NavController){
                 .fillMaxSize()
                 .padding(28.dp),
         ){
-            var username = remember { TextFieldState() }
-            var password = remember { TextFieldState() }
+            var username by remember { mutableStateOf("") }
+            var password by remember { mutableStateOf("") }
 
             CloseIcon(navController)
 
@@ -62,9 +66,48 @@ fun LoginPage(navController: NavController){
                 fontWeight = FontWeight.Normal,
                 modifier = Modifier.padding(bottom = 30.dp)
             )
+            Text(
+                text = "Username",
+                fontFamily = Inter_Bold,
+                letterSpacing = 0.sp,
+                color = Color(0xFF292929)
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            OutlinedTextField(
+                value = username,
+                onValueChange = { username = it },
+                placeholder = { Text(text = "username", fontFamily = Inter_Regular)},
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Color(0xFF292929),
+                    unfocusedBorderColor = Color(0xFFB6B6B6)
+                ),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                )
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = "Password",
+                fontFamily = Inter_Bold,
+                letterSpacing = 0.sp,
+                color = Color(0xFF292929)
+                )
+            Spacer(modifier = Modifier.height(10.dp))
+            OutlinedTextField(
+                value = password,
+                onValueChange = { password = it },
+                placeholder = { Text(text = "password", fontFamily = Inter_Regular)},
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Color(0xFF292929),
+                    unfocusedBorderColor = Color(0xFFB6B6B6)
+                ),
+                visualTransformation = PasswordVisualTransformation(),
+                modifier = Modifier
+                    .fillMaxWidth(),
 
-            InputField("Username", username, "")
-            PasswordInputField(password)
+                )
+            Spacer(modifier = Modifier.height(240.dp))
             NotHaveAccount(navController)
             Button(
                 onClick = {
@@ -73,11 +116,17 @@ fun LoginPage(navController: NavController){
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp),
-                colors = ButtonDefaults.buttonColors(Color(0xFF87B6D6),
+                    .height(60.dp),
+                colors = ButtonDefaults.buttonColors(Color(0xFF87B6D6)
                 )
             ) {
-                Text(text = "Login")
+                Text(
+                    text = "Login",
+                    fontFamily = Inter_Bold,
+                    fontSize = 24.sp,
+                    letterSpacing = 0.sp,
+                    color = Color.White
+                    )
             }
 
 
@@ -96,16 +145,16 @@ fun NotHaveAccount(navController: NavController){
     ){
         Text(
             text = "Belum punya akun?",
-            fontSize = 12.sp,
-            color = Color(135, 182, 214),
-            fontWeight = FontWeight.Normal
+            fontSize = 14.sp,
+            fontFamily = Inter_Regular,
+            color = Color(0xFF87B6D6),
         )
-        Spacer(modifier = Modifier.width(10.dp))
+        Spacer(modifier = Modifier.width(2.dp))
         Text(
             text = "Daftar dulu",
-            fontSize = 12.sp,
-            color = Color(135, 182, 214),
-            fontWeight = FontWeight.Bold,
+            fontSize = 14.sp,
+            fontFamily = Inter_Bold,
+            color = Color(0xFF87B6D6),
             modifier = Modifier.clickable {
                 navController.navigate("register_page")
             }
