@@ -25,6 +25,7 @@ import com.dicoding.picodiploma.kbt_project.HomeDashboard.HomeDashboard
 import com.dicoding.picodiploma.kbt_project.Input.UserState
 import com.dicoding.picodiploma.kbt_project.LandingPage.LandingPage
 import com.dicoding.picodiploma.kbt_project.LoginPage.LoginPage
+import com.dicoding.picodiploma.kbt_project.Profile.ProfileScreen
 import com.dicoding.picodiploma.kbt_project.RegisterPage.RegisterPage
 import com.dicoding.picodiploma.kbt_project.UpdateProfile.UpdateProfile
 import com.dicoding.picodiploma.kbt_project.ui.theme.KBTProjectTheme
@@ -80,6 +81,9 @@ fun GreetingPreview() {
 
             composable("register_page"){
                 RegisterPage(navController)
+            }
+            composable("profile_page"){
+                ProfileScreen(navController)
             }
         }
     }

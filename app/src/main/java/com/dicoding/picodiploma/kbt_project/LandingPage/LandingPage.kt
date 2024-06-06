@@ -51,7 +51,7 @@ fun LandingPage(navController: NavController){
                 fontSize = 32.sp,
                 fontFamily = Inter_Bold ,
                 textAlign = TextAlign.Center,
-                lineHeight = 30.sp,
+                lineHeight = 36.sp,
                 letterSpacing = 0.sp,
                 color = Color(0xFF292929)
             )
@@ -70,7 +70,7 @@ fun LandingPage(navController: NavController){
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 30.dp)
+                    .fillMaxWidth()
                     .height(50.dp),
                 colors = ButtonDefaults.buttonColors(Color(0xFF87B6D6),
                 )
@@ -88,7 +88,6 @@ fun LandingPage(navController: NavController){
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 30.dp)
                     .height(50.dp),
                 colors = ButtonDefaults.buttonColors(Color.White),
                 border = BorderStroke(1.dp, Color(0xFF87B6D6))
