@@ -25,6 +25,7 @@ import com.dicoding.picodiploma.kbt_project.HomeDashboard.HomeDashboard
 import com.dicoding.picodiploma.kbt_project.Input.UserState
 import com.dicoding.picodiploma.kbt_project.LandingPage.LandingPage
 import com.dicoding.picodiploma.kbt_project.LoginPage.LoginPage
+import com.dicoding.picodiploma.kbt_project.Patient.PatientScreen
 import com.dicoding.picodiploma.kbt_project.Profile.ProfileScreen
 import com.dicoding.picodiploma.kbt_project.RegisterPage.RegisterPage
 import com.dicoding.picodiploma.kbt_project.UpdateProfile.UpdateProfile
@@ -63,8 +64,8 @@ fun GreetingPreview() {
         var user = remember { UserState() }
         var navController = rememberNavController()
         NavHost(navController = navController, startDestination = "landing_page") {
-            composable("update_profile"){
-                UpdateProfile(navController, user)
+            composable("patient_screen"){
+                PatientScreen(navController)
             }
 
             composable("home_dashboard"){
