@@ -18,11 +18,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
@@ -141,7 +139,9 @@ fun HomeDashboard(navController: NavController, user: UserState = remember { Use
                         .size(56.dp)
                         .clip(CircleShape)
                         .background(Color(0xFF87B6D6))
-                        .clickable { /*TODO*/ }
+                        .clickable {
+                                   navController.navigate("patient_form")
+                        }
                        ,
                     contentAlignment = Alignment.Center
                 ) {

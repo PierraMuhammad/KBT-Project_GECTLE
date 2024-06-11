@@ -25,7 +25,7 @@ val bottomNavItems = listOf(
     ),
     BottomNavItem(
         title = "Patient",
-        route = "update_profile",
+        route = "patient_screen",
         selectedIcon = Icons.Filled.Face,
         unselectedIcon = Icons.Outlined.Face,
     ),

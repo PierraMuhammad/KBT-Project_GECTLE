@@ -117,7 +117,9 @@ fun PatientScreen(navController: NavController){
                         .size(56.dp)
                         .clip(CircleShape)
                         .background(Color(0xFF87B6D6))
-                        .clickable { /*TODO*/ }
+                        .clickable {
+                            navController.navigate("patient_form")
+                        }
                     ,
                     contentAlignment = Alignment.Center
                 ) {
@@ -149,6 +151,13 @@ fun PatientScreen(navController: NavController){
                         PatientCard()
                         Spacer(modifier = Modifier.height(16.dp))
                         PatientCard()
+                        Spacer(modifier = Modifier.height(16.dp))
+                        PatientCard()
+                        Spacer(modifier = Modifier.height(16.dp))
+                        PatientCard()
+                        Spacer(modifier = Modifier.height(16.dp))
+                        PatientCard()
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
                 }
             }

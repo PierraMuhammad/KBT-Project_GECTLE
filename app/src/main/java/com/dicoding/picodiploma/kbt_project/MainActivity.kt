@@ -23,6 +23,7 @@ import com.dicoding.picodiploma.kbt_project.HomeDashboard.HomeDashboard
 import com.dicoding.picodiploma.kbt_project.Input.UserState
 import com.dicoding.picodiploma.kbt_project.LandingPage.LandingPage
 import com.dicoding.picodiploma.kbt_project.LoginPage.LoginPage
+import com.dicoding.picodiploma.kbt_project.Patient.PatientForm
 import com.dicoding.picodiploma.kbt_project.Patient.PatientScreen
 import com.dicoding.picodiploma.kbt_project.Profile.ProfileScreen
 import com.dicoding.picodiploma.kbt_project.RegisterPage.RegisterPage
@@ -82,6 +83,9 @@ fun GreetingPreview() {
             }
             composable("profile_page"){
                 ProfileScreen(navController)
+            }
+            composable("patient_form"){
+                PatientForm(navController)
             }
         }
     }
