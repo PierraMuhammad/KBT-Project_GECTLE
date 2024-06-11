@@ -7,8 +7,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -28,7 +26,6 @@ import com.dicoding.picodiploma.kbt_project.LoginPage.LoginPage
 import com.dicoding.picodiploma.kbt_project.Patient.PatientScreen
 import com.dicoding.picodiploma.kbt_project.Profile.ProfileScreen
 import com.dicoding.picodiploma.kbt_project.RegisterPage.RegisterPage
-import com.dicoding.picodiploma.kbt_project.UpdateProfile.UpdateProfile
 import com.dicoding.picodiploma.kbt_project.ui.theme.KBTProjectTheme
 
 class MainActivity : ComponentActivity() {
@@ -73,7 +70,7 @@ fun GreetingPreview() {
             }
 
             composable("login_page"){
-                LoginPage(navController)
+                LoginPage(navController, ctx)
             }
 
             composable("landing_page"){

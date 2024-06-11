@@ -1,5 +1,7 @@
       package com.dicoding.picodiploma.kbt_project.LoginPage
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,7 +38,7 @@ import com.dicoding.picodiploma.kbt_project.ui.theme.Inter_Bold
 import com.dicoding.picodiploma.kbt_project.ui.theme.Inter_Regular
       @OptIn(ExperimentalMaterial3Api::class)
       @Composable
-fun LoginPage(navController: NavController){
+fun LoginPage(navController: NavController, context: Context){
     Surface{
         Column(
             modifier = Modifier
@@ -111,7 +113,11 @@ fun LoginPage(navController: NavController){
             NotHaveAccount(navController)
             Button(
                 onClick = {
-                          navController.navigate("home_dashboard")
+                    if (username == "Testing@gmail.com"  && password ==  "12345"){
+                        navController.navigate("home_dashboard")
+                    } else {
+                        Toast.makeText(context, "User Cannot been found", Toast.LENGTH_SHORT).show()
+                    }
                 },
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier

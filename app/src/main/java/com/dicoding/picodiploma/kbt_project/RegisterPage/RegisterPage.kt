@@ -156,7 +156,7 @@ fun RegisterPage(navController: NavController){
             HaveAccount(navController)
             Button(
                 onClick = {
-                    navController.navigate("home_dashboard")
+                    navController.navigate("login_page")
                 },
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
